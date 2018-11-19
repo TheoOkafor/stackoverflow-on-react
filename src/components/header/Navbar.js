@@ -10,7 +10,7 @@ render() {
           <ul className="list list-unstyled">
             <li className="search-container">
               <input type="search" name="search" placeholder="Which question?" />
-              <Button styleName="primary" id="search-btn" >Search</Button>
+              <Button styleName="primary" id="search-btn" value="Search" />
             </li>
             <li>
               {/* <Link to="/" className="inherit"> 

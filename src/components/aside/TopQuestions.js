@@ -66,9 +66,6 @@ class TopQuestions extends Component {
         }
         this.setState({ data: topQuestions });
       })
-      .catch(error => {
-        console.log(error);
-      });
   }
 
   render() {
