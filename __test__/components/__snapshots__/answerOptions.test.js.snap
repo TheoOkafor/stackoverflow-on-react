@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test that the AnswerOptions displays 1`] = `
+<div
+  className="answer-options"
+>
+  <div
+    className="message-display"
+  >
+    <p
+      id="\\"vote-mssg-74\\""
+    />
+    <div
+      className="loader-xs"
+      id="\\"vote-74-loader\\""
+    />
+  </div>
+  <span
+    className="upvote-display"
+  >
+    0
+  </span>
+  <button
+    className="btn primary-o"
+    id="\\"vote-74-up\\""
+  >
+    Upvote
+  </button>
+  <span
+    className="vote-display"
+  >
+    0
+  </span>
+  <button
+    className="btn link gray"
+    id="\\"vote-74-down\\""
+  >
+    Downvote
+  </button>
+  <button
+    className="btn link"
+    value="\\"12\\""
+  >
+    Comment
+  </button>
+</div>
+`;

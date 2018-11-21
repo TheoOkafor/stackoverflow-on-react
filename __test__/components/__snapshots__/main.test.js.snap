@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test that the Home displays 1`] = `
+<div
+  className="sd-margin-12 d-margin-7 margin-top-15"
+>
+  <div
+    className="row-container"
+    id="main-container"
+  />
+</div>
+`;

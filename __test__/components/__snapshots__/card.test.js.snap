@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test that the Card displays 1`] = `
+<div
+  className="card primary"
+>
+  <p>
+    Theo is just testing stuffs out
+  </p>
+</div>
+`;

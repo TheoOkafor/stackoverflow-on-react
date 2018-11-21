@@ -10,8 +10,10 @@ class HomePage extends Component {
     return (
       <div className="row-container home">
         <Main>
-          <QuestionForm />
-          <Home />
+          <div>
+            <QuestionForm />
+            <Home />
+          </div>
         </Main>
         <AsideRight />
       </div>

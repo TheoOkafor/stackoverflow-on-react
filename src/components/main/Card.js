@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Card = (props) => {
   return (
@@ -6,6 +7,12 @@ const Card = (props) => {
       {props.children}
     </div>
   );
+}
+
+Card.propTypes = {
+  styleName: PropTypes.string,
+  id: PropTypes.number,
+  children: PropTypes.element,
 }
 
 export default Card;

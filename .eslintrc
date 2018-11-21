@@ -6,7 +6,7 @@
         "ignoreComments": true
       }
     ],
-    "react/prop-types": [1]
+    "react/prop-types": [2]
   },
   "settings": {
     "react": {
@@ -30,7 +30,12 @@
     "fetch": false,
     "document": false,
     "window": false,
-    "Headers": false
-
+    "Headers": false,
+    "expect": false,
+    "test": false,
+    "describe": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "afterAll": false
   }
 }
