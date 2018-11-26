@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test that the AnswerOptions displays 1`] = `
+<div
+  className="answer-card"
+>
+  <div>
+    <h4
+      className="person-answer left"
+    >
+      <a
+        className="inherit"
+        href="/users/4"
+        onClick={[Function]}
+      >
+        teddy01
+      </a>
+      <br />
+      <small>
+        Answered:
+        <span>
+          Wed Nov 21 2018
+        </span>
+      </small>
+    </h4>
+    <div
+      className="clear-fix"
+    />
+    <p
+      className="answer"
+      id="\\"ans-74\\""
+    >
+      What?
+    </p>
+    <div>
+      <div
+        className="accepted right default"
+      >
+        Accepted
+      </div>
+      <button
+        className="btn accept right"
+        id="acc-74"
+        value="undefined"
+      >
+        Accept Answer
+      </button>
+      <button
+        className="btn unaccept right"
+        id="un-74"
+        value="undefined"
+      >
+        Un-accept Answer
+      </button>
+    </div>
+    <div
+      className="answer-options"
+    >
+      <div
+        className="message-display"
+      >
+        <p
+          id="\\"vote-mssg-74\\""
+        />
+        <div
+          className="loader-xs"
+          id="\\"vote-74-loader\\""
+        />
+      </div>
+      <span
+        className="upvote-display"
+      >
+        0
+      </span>
+      <button
+        className="btn primary-o"
+        id="\\"vote-74-up\\""
+      >
+        Upvote
+      </button>
+      <span
+        className="vote-display"
+      >
+        0
+      </span>
+      <button
+        className="btn link gray"
+        id="\\"vote-74-down\\""
+      >
+        Downvote
+      </button>
+      <button
+        className="btn link"
+        value="\\"undefined\\""
+      >
+        Comment
+      </button>
+    </div>
+    <div
+      className="comments"
+    >
+      <p
+        className="comment-display"
+      >
+        <small>
+          Jonzing
+          <span
+            className="right"
+          >
+            <a
+              className="inherit"
+              href="/users/4"
+              onClick={[Function]}
+            >
+              <b>
+                teddy01
+              </b>
+            </a>
+            (
+            Wed Nov 21 2018
+            )
+          </span>
+        </small>
+      </p>
+      <form
+        className="comment-form"
+      >
+        <div
+          className="message-display"
+        >
+          <p
+            id="server-message-74"
+          />
+          <div
+            className="loader-xs"
+            id="comment-74-loader"
+          />
+        </div>
+        <textarea
+          id="comment-box-74"
+          placeholder="Comment on this answer"
+        />
+        <button
+          className="btn primary"
+          id="comment-74"
+        >
+          Post Comment
+        </button>
+        <input
+          type="reset"
+          value="Cancel"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+`;

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import TopQuestions from './TopQuestions';
 class AsideRight extends Component {
 
@@ -13,6 +15,10 @@ class AsideRight extends Component {
       </div>
     );
   }
+}
+
+AsideRight.propTypes = {
+  children: PropTypes.element,
 }
 
 export default AsideRight;

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test that the Comment displays 1`] = `
+<div
+  className="comments"
+>
+  <p
+    className="comment-display"
+  >
+    <small>
+      Jonzing
+      <span
+        className="right"
+      >
+        <a
+          className="inherit"
+          href="/users/4"
+          onClick={[Function]}
+        >
+          <b>
+            teddy01
+          </b>
+        </a>
+        (
+        Wed Nov 21 2018
+        )
+      </span>
+    </small>
+  </p>
+  <form
+    className="comment-form"
+  >
+    <div
+      className="message-display"
+    >
+      <p
+        id="server-message-74"
+      />
+      <div
+        className="loader-xs"
+        id="comment-74-loader"
+      />
+    </div>
+    <textarea
+      id="comment-box-74"
+      placeholder="Comment on this answer"
+    />
+    <button
+      className="btn primary"
+      id="comment-74"
+    >
+      Post Comment
+    </button>
+    <input
+      type="reset"
+      value="Cancel"
+    />
+  </form>
+</div>
+`;

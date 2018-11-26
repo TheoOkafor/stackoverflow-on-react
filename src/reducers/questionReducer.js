@@ -1,8 +1,9 @@
-import { FETCH_QUESTIONS, NEW_QUESTION } from '../actions/types';
+import { FETCH_QUESTIONS, NEW_QUESTION, FETCH_QUESTION } from '../actions/types';
 
 const initialState = {
   questions: [],
   question: {},
+  questionWithAnswer: {},
 };
 
 export default (state = initialState, action) => {
@@ -13,7 +14,11 @@ export default (state = initialState, action) => {
       });
     case NEW_QUESTION:
       return Object.assign({}, state, {
-        question: action.data 
+        question: action.data
+      });
+    case FETCH_QUESTION:
+      return Object.assign({}, state, {
+        questionWithAnswer: action.data,
       });
     default:
       return state;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { postQuestion } from '../../actions/questionActions';
-
+import Button from './Button';
 class QuestionForm extends Component {
   constructor(props) {
     super(props);
@@ -118,7 +118,12 @@ class QuestionForm extends Component {
           id="description" 
           onChange={this.changeHandler}></textarea>
           <div className="btn-group">
-            <button type="submit" className="btn primary question-btn" id="send-btn">Ask Question</button>
+            <Button 
+              type="submit" 
+              className="question-btn"
+              styleName="primary"
+              id="send-btn" 
+              name="Ask Question" />
             <input type="reset" value="Cancel" />
           </div>
         </form>
@@ -130,6 +135,7 @@ class QuestionForm extends Component {
 QuestionForm.propTypes = {
   postQuestion: PropTypes.func.isRequired,
   question: PropTypes.object,
+  newQuestion: PropTypes.object,
 };
 
 export default connect(null, { postQuestion })(QuestionForm);

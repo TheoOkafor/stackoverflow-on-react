@@ -22,12 +22,7 @@ class TopQuestions extends Component {
 
         //creates an div element called card and maps the questions to it.
         data.forEach( question => {
-          let i = 0;
-          let answer = '';
-          let time = '';
-          let username = '';
           let currAnswers = question.answers;
-          let numAnswers = question.numAnswers || 0;
 
           //Makes an array of only accepted answer
           let acceptedAns = currAnswers.filter(answer => {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Main extends Component {
   render() {
@@ -11,6 +12,10 @@ class Main extends Component {
       </div>
     );
   }
+}
+
+Main.propTypes = {
+  children: PropTypes.element,
 }
 
 export default Main;
