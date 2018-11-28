@@ -7,7 +7,7 @@ import CommentDisp from './CommentDisp';
 class Comment extends Component {
 
   render() {
-    return(
+    return (
       <div className="comments">
         {
           this.props.answer.comments.map((comment) => {

@@ -1,4 +1,4 @@
-import questionReducer from '../../src/reducers/questionReducer'
+import questionReducer from '../../src/reducers/questionReducer';
 import * as types from '../../src/actions/types';
 import data from '../utilities/data';
 
@@ -20,27 +20,26 @@ describe('Answer reducer FETCH QUESTIONS test', () => {
         data: data.questions
       })
     ).toEqual({
-        questions: data.questions,
-      });
+      questions: data.questions,
+    });
 
     expect(
       questionReducer([
-          {
-            questions: data.questions,
-          }
-        ],
         {
-          type: types.FETCH_QUESTIONS,
-          data: data.questions
+          questions: data.questions,
         }
-      )
+      ],
+      {
+        type: types.FETCH_QUESTIONS,
+        data: data.questions
+      })
     ).toEqual({
       0: {
         questions: data.questions,
       },
       questions: data.questions,
-    })
-  })
+    });
+  });
 });
 
 describe('Answer reducer POST QUESTION test', () => {
@@ -55,28 +54,27 @@ describe('Answer reducer POST QUESTION test', () => {
         data: data.newQuestion
       })
     ).toEqual({
-        question: data.newQuestion,
-      });
+      question: data.newQuestion,
+    });
 
     expect(
       questionReducer([
-          {
-            question: data.newQuestion,
-          }
-        ],
         {
-          type: types.NEW_QUESTION,
-          data: data.newQuestion
+          question: data.newQuestion,
         }
-      )
+      ],
+      {
+        type: types.NEW_QUESTION,
+        data: data.newQuestion
+      })
     ).toEqual({
       0: {
         question: data.newQuestion,
       },
       question: data.newQuestion,
-    })
-  })
-})
+    });
+  });
+});
 
 describe('Answer reducer FETCH QUESTION test', () => {
   test('should return the initial state', () => {
@@ -91,25 +89,23 @@ describe('Answer reducer FETCH QUESTION test', () => {
       })
     ).toEqual({
       questionWithAnswer: data.question.data,
-      });
+    });
 
     expect(
       questionReducer([
-          {
-            questionWithAnswer: data.question.data,
-          }
-        ],
         {
-          type: types.FETCH_QUESTION,
-          data: data.question.data
+          questionWithAnswer: data.question.data,
         }
-      )
+      ],
+      {
+        type: types.FETCH_QUESTION,
+        data: data.question.data
+      })
     ).toEqual({
       0: {
         questionWithAnswer: data.question.data,
       },
       questionWithAnswer: data.question.data,
-    })
-  })
+    });
+  });
 });
-

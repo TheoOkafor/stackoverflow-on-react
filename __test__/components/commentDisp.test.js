@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {MemoryRouter} from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 import CommentDisp from '../../src/components/question/answer/CommentDisp';
 import data from '../utilities/data';

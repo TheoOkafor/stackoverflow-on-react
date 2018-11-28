@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test that the Signup Main component displays 1`] = `
+<div
+  className="main row-container"
+>
+  <div
+    className="sd-margin-12 d-margin-6 margin-top-20 site-desc"
+  >
+    <h1
+      className="heading center"
+    >
+      Join Stack Overflow
+      <small>
+        -lite
+      </small>
+    </h1>
+    <p>
+      This is a platform where you can ask
+      <span>
+        questions
+      </span>
+       and provide 
+      <span>
+        answers
+      </span>
+      .
+    </p>
+  </div>
+  <div
+    className="sd-margin-12 d-margin-6"
+  >
+    <div
+      className="sign-card"
+    >
+      <form
+        className="signup-form"
+        onSubmit={[Function]}
+      >
+        <p>
+          <small>
+            Already Signed up?
+          </small>
+          <a
+            className="inherit"
+            href="/signin"
+          >
+            Sign in
+          </a>
+        </p>
+        <p
+          className="signup-error "
+        >
+          
+        </p>
+        <div
+          className="form-item"
+        >
+          <label>
+            Username
+          </label>
+          <input
+            name="username"
+            onChange={[Function]}
+            placeholder="username"
+            required={true}
+            type="text"
+          />
+        </div>
+        <div
+          className="form-item"
+        >
+          <label>
+            Email
+          </label>
+          <input
+            name="email"
+            onChange={[Function]}
+            placeholder="Your current email address"
+            required={true}
+            type="email"
+          />
+        </div>
+        <div
+          className="form-item"
+        >
+          <label>
+            Create Password
+          </label>
+          <input
+            id="password"
+            name="password"
+            onInput={[Function]}
+            placeholder="Create Password"
+            required={true}
+            type="password"
+          />
+          <h5
+            className=""
+            id="pass-strength"
+          >
+            
+          </h5>
+        </div>
+        <div
+          className="form-item"
+        >
+          <label>
+            Repeat Password
+          </label>
+          <input
+            id="password2"
+            name="confirmpassword"
+            onChange={[Function]}
+            placeholder="Repeat password"
+            required={true}
+            type="password"
+          />
+          <h5
+            id="match-display"
+          >
+            
+          </h5>
+        </div>
+        <button
+          className="btn primary"
+          id="sign-up"
+        >
+          Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+  <div
+    className="clear-fix"
+  />
+</div>
+`;

@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
-import * as actions from '../../src/actions/answerActions';
+import * as actions from '../../src/actions/authActions';
 import * as types from '../../src/actions/types';
 import data from '../utilities/data';
 
@@ -9,10 +9,9 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 const store = mockStore({
-  answers: [],
+  payload: [],
 });
 
-const id = '90';
 
 describe('Answer actions', () => {
   beforeEach(() => { // Runs before each test in the suite
@@ -27,18 +26,15 @@ describe('Answer actions', () => {
 
   test('should dispatch the answer to the store after post', () => {
     fetchMock
-      .post(`https://stackoverflow-by-theo1.herokuapp.com/v1/questions/${
-        id}/answers`, {
-        data: data.sampleAnswer,
-      });
+      .post('https://stackoverflow-by-theo1.herokuapp.com/v1/auth/signup',
+        data.payload);
 
     const expectedActions = [{
-      type: types.NEW_ANSWER,
-      data: data.sampleAnswer,
+      type: types.SIGN_UP,
+      data: data.payload,
     }];
-    return store.dispatch(actions.postAnswer(data.sampleAnswer, id))
-      .then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      });
+    return store.dispatch(actions.signup(data.userData)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 });
