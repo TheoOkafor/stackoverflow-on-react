@@ -4,30 +4,12 @@ import AuthNavItem from './AuthNavItem';
 import loggedIn from '../utilities/checkAuth';
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loggedIn: loggedIn(),
-      username: localStorage.getItem('username'),
-    };
-  }
-
-  checkAuth() {
-    if (loggedIn()) {
-      const auth = loggedIn();
-      this.setState({
-        loggedIn: auth,
-        username: localStorage.getItem('username'),
-      });
-    }
-  }
-
   render() {
+    const username = localStorage.getItem('username');
     return (
       <nav className="top-link right">
-        {this.state.loggedIn
-          ? <AuthNavItem username={this.state.username} />
+        {loggedIn()
+          ? <AuthNavItem username={username} />
           : <NavItem /> }
       </nav>
     );

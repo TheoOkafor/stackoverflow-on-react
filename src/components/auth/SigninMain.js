@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import SignupForm from './SignupForm';
+import SigninForm from './SigninForm';
 
-class SignupMain extends Component {
+class SigninMain extends Component {
   render() {
     return (
       <div className="main row-container">
         <div className="sd-margin-12 d-margin-6 margin-top-20 site-desc">
           <h1 className="heading center">
-            Join Stack Overflow<small>-lite</small>
+            Welcome back to Stack Overflow<small>-lite</small>
           </h1>
           <p>
             This is a platform where you can ask
@@ -15,7 +15,7 @@ class SignupMain extends Component {
           </p>
         </div>
 
-        <SignupForm />
+        <SigninForm />
         <div className="clear-fix" />
 
       </div>
@@ -23,4 +23,4 @@ class SignupMain extends Component {
   }
 }
 
-export default SignupMain;
+export default SigninMain;

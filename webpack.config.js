@@ -16,8 +16,16 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-            loader: 'babel-loader',
-        }
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /(\.s[ac]ss$|\.css$)/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(jpe?g|gif|png|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+        loader: 'file-loader?name=images/[name].[ext]',
       },
     ]
   },
@@ -26,7 +34,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: './src/index.html',
+      template: './src/index.html',
     })
   ],
-}
+};

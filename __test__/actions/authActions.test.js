@@ -13,8 +13,8 @@ const store = mockStore({
 });
 
 
-describe('Answer actions', () => {
-  beforeEach(() => { // Runs before each test in the suite
+describe('Authentication actions', () => {
+  beforeEach(() => {
     store.clearActions();
   });
   afterEach(() => {
@@ -24,7 +24,7 @@ describe('Answer actions', () => {
     store.clearActions();
   });
 
-  test('should dispatch the answer to the store after post', () => {
+  test('should dispatch the credentials to the store after signup', () => {
     fetchMock
       .post('https://stackoverflow-by-theo1.herokuapp.com/v1/auth/signup',
         data.payload);
@@ -34,6 +34,20 @@ describe('Answer actions', () => {
       data: data.payload,
     }];
     return store.dispatch(actions.signup(data.userData)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  test('should dispatch the credentials to the store after signin', () => {
+    fetchMock
+      .post('https://stackoverflow-by-theo1.herokuapp.com/v1/auth/signin',
+        data.payload);
+
+    const expectedActions = [{
+      type: types.SIGN_IN,
+      data: data.payload,
+    }];
+    return store.dispatch(actions.signin(data.userData)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
-import * as actions from '../../src/actions/answerActions';
+import postAnswer from '../../src/actions/answerActions';
 import * as types from '../../src/actions/types';
 import data from '../utilities/data';
 
@@ -36,7 +36,7 @@ describe('Answer actions', () => {
       type: types.NEW_ANSWER,
       data: data.sampleAnswer,
     }];
-    return store.dispatch(actions.postAnswer(data.sampleAnswer, id))
+    return store.dispatch(postAnswer(data.sampleAnswer, id))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });

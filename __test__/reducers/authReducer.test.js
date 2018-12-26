@@ -38,4 +38,32 @@ describe('Sign up reducer test', () => {
       payload: data.payload,
     });
   });
+
+  test('should handle SIGN IN', () => {
+    expect(
+      authReducer([], {
+        type: types.SIGN_IN,
+        data: data.payload,
+      })
+    ).toEqual({
+      payload: data.payload,
+    });
+
+    expect(
+      authReducer([
+        {
+          payload: data.payload,
+        }
+      ],
+      {
+        type: types.SIGN_IN,
+        data: data.payload
+      })
+    ).toEqual({
+      0: {
+        payload: data.payload,
+      },
+      payload: data.payload,
+    });
+  });
 });
