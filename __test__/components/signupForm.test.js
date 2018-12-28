@@ -1,12 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Home from '../../src/components/main/Home';
+import SignupForm from '../../src/components/auth/SignupForm';
 import store from '../../src/store';
-// import data from '../utilities/data';
 
-test.skip('Test that the Home displays', () => {
+test('Test that the Signup Form displays', () => {
   const component = renderer.create(
-    <Home store={store}/>
+    <SignupForm store={store}/>
   );
   expect(component).toMatchSnapshot();
 });

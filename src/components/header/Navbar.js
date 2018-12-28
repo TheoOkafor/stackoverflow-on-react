@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
-import Button from '../main/Button';
-import { Link } from "react-router-dom";
+import NavItem from './NavItem';
+import AuthNavItem from './AuthNavItem';
+import loggedIn from '../utilities/checkAuth';
 
 class Navbar extends Component {
-render() {
-  return (
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loggedIn: loggedIn(),
+      username: localStorage.getItem('username'),
+    };
+  }
+
+  checkAuth() {
+    if (loggedIn()) {
+      const auth = loggedIn();
+      this.setState({
+        loggedIn: auth,
+        username: localStorage.getItem('username'),
+      });
+    }
+  }
+
+  render() {
+    return (
       <nav className="top-link right">
-        <ul className="list list-unstyled">
-          <li className="search-container">
-            <input type="search" name="search" 
-              placeholder="Which question?" />
-            <Button styleName="primary" id="search-btn" name="Search" />
-          </li>
-          <li>
-            <Link to="/" className="inherit"> 
-              Ask Question</Link>
-          </li>
-          <li>
-            <Link to="/users/" 
-              className="inherit"><b>Chinaza</b>
-            </Link>
-          </li>
-          <li>
-            <Link to="/logout" className="inherit" id="logout">logout</Link>
-          </li>
-        </ul>
+        {this.state.loggedIn
+          ? <AuthNavItem username={this.state.username} />
+          : <NavItem /> }
       </nav>
     );
   }

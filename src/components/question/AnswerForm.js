@@ -19,44 +19,45 @@ class AnswerForm extends Component {
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.postAnswerHandler = this.postAnswerHandler.bind(this);
-
   }
+
   changeHandler(event) {
     this.setState({
-      [ event.target.id ]: {
+      [event.target.id]: {
         body: event.target.value,
       },
     });
   }
+
   postAnswerHandler(event) {
     event.preventDefault();
     const { answer } = this.state;
     this.props.postAnswer(answer, this.props.questionId);
   }
+
   render() {
     return (
       <div className="answer-card">
         <form onSubmit={this.postAnswerHandler}>
           <div id="user-name">
-            <h4><a href="" className="inherit"> </a><small>(you)</small></h4>
+            <h4><a href="" className="inherit" /><small>(you)</small></h4>
           </div>
           <div className="message-display">
-            <p id="server-message"></p>
-            <div className="loader-xs" id="add-answer-loader"></div>
+            <p id="server-message" />
+            <div className="loader-xs" id="add-answer-loader" />
           </div>
           <div className="answer-form">
-            <textarea rows="4" 
-              placeholder="Type your answer here" 
+            <textarea rows="4"
+              placeholder="Type your answer here"
               id="answer"
               value= {this.state.answer.body}
-              onChange={this.changeHandler} >
-            </textarea>
-            
+              onChange={this.changeHandler} />
+
             <div className="btn-group">
-              <Button 
+              <Button
                 className="answer-btn"
                 styleName="primary"
-                id="add-answer" 
+                id="add-answer"
                 onClick="activateLoaderXs(this.id)"
                 name="Add Answer" />
               <input type="reset" value="Cancel"/>

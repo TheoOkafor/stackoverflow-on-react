@@ -1,4 +1,4 @@
-import answerReducer from '../../src/reducers/answerReducer'
+import answerReducer from '../../src/reducers/answerReducer';
 import * as types from '../../src/actions/types';
 import data from '../utilities/data';
 
@@ -19,27 +19,26 @@ describe('Answer reducer POST ANSWER test', () => {
         data: data.sampleAnswer.data
       })
     ).toEqual({
-        answer: data.sampleAnswer.data,
-      });
+      answer: data.sampleAnswer.data,
+    });
 
     expect(
       answerReducer([
-          {
-            answer: data.sampleAnswer.data,
-          }
-        ],
         {
-          type: types.NEW_ANSWER,
-          data: data.sampleAnswer.data
+          answer: data.sampleAnswer.data,
         }
-      )
+      ],
+      {
+        type: types.NEW_ANSWER,
+        data: data.sampleAnswer.data
+      })
     ).toEqual({
       0: {
         answer: data.sampleAnswer.data,
       },
       answer: data.sampleAnswer.data,
-    })
-  })
+    });
+  });
 });
 
 describe('Answer reducer FETCH QUESTION/ANSWER test', () => {
@@ -54,25 +53,24 @@ describe('Answer reducer FETCH QUESTION/ANSWER test', () => {
         data: data.question.data
       })
     ).toEqual({
-        answers: data.question.data.answers,
-      });
+      answers: data.question.data.answers,
+    });
 
     expect(
       answerReducer([
-          {
-            answers: data.question.data.answers,
-          }
-        ],
         {
-          type: types.FETCH_QUESTION,
-          data: data.question.data
+          answers: data.question.data.answers,
         }
-      )
+      ],
+      {
+        type: types.FETCH_QUESTION,
+        data: data.question.data
+      })
     ).toEqual({
       0: {
         answers: data.question.data.answers,
       },
       answers: data.question.data.answers,
-    })
-  })
-})
+    });
+  });
+});

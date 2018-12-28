@@ -455,7 +455,6 @@ button.toggle-nav {
 #pass-strength {
 	text-rendering: auto;
 	color: #99ffcc;
-	display: none;
 }
 
 #match-display {
@@ -613,6 +612,10 @@ div.answer-card {
 
 .show {
 	display: inline;
+}
+
+.visible {
+	display: inline-block;
 }
 
 .default {

@@ -3,13 +3,13 @@ import React from 'react';
 
 const Button = (props) => {
   return (
-    <button className={`btn ${ props.styleName }`} 
-    id={ props.id } 
-    value={ props.value }>
+    <button className={`btn ${props.styleName}`}
+      id={props.id}
+      value={props.value}>
       {props.name || props.children}
     </button>
   );
-}
+};
 
 Button.propTypes = {
   styleName: PropTypes.string,

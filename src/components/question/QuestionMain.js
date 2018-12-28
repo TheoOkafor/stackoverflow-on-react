@@ -10,15 +10,14 @@ import { fetchQuestion } from '../../actions/questionActions';
 import AnswerForm from './AnswerForm';
 
 class QuestionMain extends Component {
-
   componentDidMount() {
     this.props.fetchQuestion(this.props.match.url);
     document.getElementsByClassName('loader')[0].style.display = 'none';
   }
 
-  shouldComponentUpdate(nextProps){
+  shouldComponentUpdate(nextProps) {
     const check = this.props.newAnswer === nextProps.newAnswer;
-    if(!check) {
+    if (!check) {
       this.props.fetchQuestion(this.props.match.url);
       return true;
     }
@@ -34,15 +33,15 @@ class QuestionMain extends Component {
             <div className="loader"></div>
             {
               this.props.answers.map((answer, i) => {
-                return <Answer key={answer.id} answer={answer} index={i} />
+                return <Answer key={answer.id} answer={answer} index={i} />;
               })
             }
             <AnswerForm questionId={this.props.match.params.id}/>
           </div>
         </div>
         <AsideRight>
-          <QuestionMeta 
-            question={this.props.question} 
+          <QuestionMeta
+            question={this.props.question}
             answers={this.props.answers} />
         </AsideRight>
       </div>
@@ -54,13 +53,13 @@ const mapStateToProps = state => ({
   newAnswer: state.answers.answer,
   answers: state.answers.answers,
   question: state.questions.questionWithAnswer,
-})
+});
 
 QuestionMain.propTypes = {
   fetchQuestion: PropTypes.func.isRequired,
   question: PropTypes.object,
   answers: PropTypes.array,
-  newAnswer:PropTypes.object,
+  newAnswer: PropTypes.object,
   match: PropTypes.object,
   url: PropTypes.string,
 };
