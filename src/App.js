@@ -12,7 +12,7 @@ import QuestionMain from './components/question/QuestionMain';
 import SignupMain from './components/auth/SignupMain';
 import Logout from './components/logout';
 import SigninMain from './components/auth/SigninMain';
-// import QuestionMain from './question/QuestionMain';
+import UserProfile from './components/user/UserProfile';
 
 class App extends Component {
   signupRedirect() {
@@ -44,7 +44,7 @@ class App extends Component {
             <Route exact path="/logout" component={Logout}/>
             <Route exact path="/signin"
               render={this.signinRedirect} />
-            {/* <Route exact path="/users/:id" component= { UserMain } /> */}
+            <Route exact path="/users/:id" component= {UserProfile} />
             <Footer />
           </div>
         </Router>

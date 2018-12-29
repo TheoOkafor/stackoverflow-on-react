@@ -23,10 +23,10 @@ describe('Question actions', () => {
   });
 
   test('should dispatch the questions to the store after fetching them', () => {
-    fetchMock.getOnce('https://stackoverflow-by-theo1.herokuapp.com/v1/questions', {
-      data: data.questions,
-      headers: { 'content-type': 'application/json' }
-    });
+    fetch
+      .mockResponseOnce(JSON.stringify({
+        data: data.questions,
+      }));
 
     const expectedActions = [{
       type: types.FETCH_QUESTIONS,
@@ -42,7 +42,7 @@ describe('Question actions', () => {
       .post('https://stackoverflow-by-theo1.herokuapp.com/v1/questions', {
         data: data.question,
         headers: { 'content-type': 'application/json' },
-        'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNTQyNjUxODg0LCJleHAiOjE1NDMyNTY2ODR9.hAWGp6zgMCO1trTNGWVWEuDuDxQYdwmJOTo8W4eMEF4',
+        'x-access-token': 'hAWGp6zgMCO1trTNGWVWEuDuDxQYdwmJOTo8W4eMEF4',
       });
 
     const expectedActions = [{
@@ -56,10 +56,10 @@ describe('Question actions', () => {
   });
 
   test('should dispatch the question to the store after post', () => {
-    fetchMock
-      .getOnce(`https://stackoverflow-by-theo1.herokuapp.com/v1${route}`, {
+    fetch
+      .mockResponseOnce(JSON.stringify({
         data: data.question,
-      });
+      }));
 
     const expectedActions = [{
       type: types.FETCH_QUESTION,

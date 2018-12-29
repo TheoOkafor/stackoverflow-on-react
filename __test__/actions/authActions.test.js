@@ -11,7 +11,7 @@ const mockStore = configureMockStore(middlewares);
 const store = mockStore({
   payload: [],
 });
-
+const { payload } = data;
 
 describe('Authentication actions', () => {
   beforeEach(() => {
@@ -25,13 +25,16 @@ describe('Authentication actions', () => {
   });
 
   test('should dispatch the credentials to the store after signup', () => {
-    fetchMock
-      .post('https://stackoverflow-by-theo1.herokuapp.com/v1/auth/signup',
-        data.payload);
+    fetch
+      .mockResponseOnce(JSON.stringify({
+        payload,
+      }));
 
     const expectedActions = [{
       type: types.SIGN_UP,
-      data: data.payload,
+      data: {
+        payload,
+      }
     }];
     return store.dispatch(actions.signup(data.userData)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
@@ -39,13 +42,16 @@ describe('Authentication actions', () => {
   });
 
   test('should dispatch the credentials to the store after signin', () => {
-    fetchMock
-      .post('https://stackoverflow-by-theo1.herokuapp.com/v1/auth/signin',
-        data.payload);
+    fetch
+      .mockResponseOnce(JSON.stringify({
+        payload,
+      }));
 
     const expectedActions = [{
       type: types.SIGN_IN,
-      data: data.payload,
+      data: {
+        payload,
+      }
     }];
     return store.dispatch(actions.signin(data.userData)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
