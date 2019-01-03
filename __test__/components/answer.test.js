@@ -7,7 +7,9 @@ import data from '../utilities/data';
 test('Test that the AnswerOptions displays', () => {
   const component = renderer.create(
     <MemoryRouter>
-      <Answer answer={data.answer} />
+      <Answer
+        answer={data.answer}
+        question={data.question} />
     </MemoryRouter>
   );
   expect(component).toMatchSnapshot();

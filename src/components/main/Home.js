@@ -58,7 +58,8 @@ class Home extends Component {
               <Card key={question.id || question.questionid}>
                 <div>
                   <h3 className="qs-title">
-                    <Link to= {`/questions/${question.id || question.questionid}`}
+                    <Link
+                      to= {`/questions/${question.id || question.questionid}`}
                       className="question">{question.title}</Link>
                   </h3>
 

@@ -5,3 +5,4 @@ export const FETCH_QUESTION = 'FETCH_QUESTION';
 export const SIGN_UP = 'SIGN_UP';
 export const SIGN_IN = 'SIGN_IN';
 export const USER = 'USER';
+export const ACCEPT_ANSWER = 'ACCEPT_ANSWER';

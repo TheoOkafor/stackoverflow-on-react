@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const CommentDisp = (props) => {
   return (
     <p className="comment-display">
-      <small>{props.comment.body} 
+      <small>{props.comment.body}
         <span className="right">
           <Link to= {`/users/${props.comment.userid}`}
             className="inherit">
@@ -16,10 +16,10 @@ const CommentDisp = (props) => {
       </small>
     </p>
   );
-}
+};
 
 CommentDisp.propTypes = {
   comment: PropTypes.object,
-}
+};
 
 export default CommentDisp;

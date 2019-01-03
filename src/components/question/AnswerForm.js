@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import postAnswer from '../../actions/answerActions';
+import { postAnswer } from '../../actions/answerActions';
 import Button from '../main/Button';
 
 class AnswerForm extends Component {
