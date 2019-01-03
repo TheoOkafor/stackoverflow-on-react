@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import TopQuestions from './TopQuestions';
-class AsideRight extends Component {
 
+class AsideRight extends Component {
   render() {
     return (
       <div className="sd-margin-12 d-margin-5">
@@ -19,6 +18,6 @@ class AsideRight extends Component {
 
 AsideRight.propTypes = {
   children: PropTypes.element,
-}
+};
 
 export default AsideRight;

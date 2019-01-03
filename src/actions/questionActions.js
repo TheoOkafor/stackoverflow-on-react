@@ -1,5 +1,6 @@
 import { FETCH_QUESTIONS, NEW_QUESTION, FETCH_QUESTION } from './types';
 
+
 export const fetchQuestions = () => (dispatch) => {
   return fetch('https://stackoverflow-by-theo1.herokuapp.com/v1/questions')
     .then(response => response.json())
@@ -13,12 +14,14 @@ export const fetchQuestions = () => (dispatch) => {
     });
 };
 
+const token = localStorage.getItem('x-access-token');
+
 export const postQuestion = data => (dispatch) => {
   return fetch('https://stackoverflow-by-theo1.herokuapp.com/v1/questions', {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
-      'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNTQyNjUxODg0LCJleHAiOjE1NDMyNTY2ODR9.hAWGp6zgMCO1trTNGWVWEuDuDxQYdwmJOTo8W4eMEF4',
+      'x-access-token': token,
     },
     body: JSON.stringify(data),
   })

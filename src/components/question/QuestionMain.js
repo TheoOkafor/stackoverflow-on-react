@@ -30,7 +30,7 @@ class QuestionMain extends Component {
         <div className="sd-margin-12 d-margin-7">
           <div className="row-container" id="main-container">
             <Question question={this.props.question} />
-            <div className="loader"></div>
+            <div className="loader" />
             {
               this.props.answers.map((answer, i) => {
                 return <Answer key={answer.id} answer={answer} index={i} />;
@@ -61,7 +61,6 @@ QuestionMain.propTypes = {
   answers: PropTypes.array,
   newAnswer: PropTypes.object,
   match: PropTypes.object,
-  url: PropTypes.string,
 };
 
 export default connect(mapStateToProps, { fetchQuestion })(QuestionMain);
