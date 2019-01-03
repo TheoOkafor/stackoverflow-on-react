@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { fetchQuestions } from '../../actions/questionActions';
+import hasAccepted from '../utilities/hasAccepted';
 
 class TopQuestions extends Component {
   constructor(props) {
@@ -21,24 +22,15 @@ class TopQuestions extends Component {
   shouldComponentUpdate(nextProps) {
     if (nextProps.questions !== this.props.questions) {
       const questionSummary = [];
-      let hasAccepted;
       const { questions } = nextProps;
       const data = questions.slice(0).reverse();
       data.forEach((question) => {
-        const currAnswers = question.answers;
-
-        const acceptedAns = currAnswers.filter(answer => answer.accepted);
-        if (acceptedAns.length > 0) {
-          hasAccepted = true;
-        } else {
-          hasAccepted = false;
-        }
-
+        const accepted = hasAccepted(question.answers);
         questionSummary.push({
           id: question.id,
           numAnswers: question.numAnswers,
           title: question.title,
-          hasAccepted,
+          hasAccepted: accepted,
         });
       });
 

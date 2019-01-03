@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
-import postAnswer from '../../src/actions/answerActions';
+import { postAnswer, acceptAnswer } from '../../src/actions/answerActions';
 import * as types from '../../src/actions/types';
 import data from '../utilities/data';
 
@@ -12,7 +12,10 @@ const store = mockStore({
   answers: [],
 });
 
-const id = '90';
+const payload = {
+  questionId: 34,
+  answerId: 75,
+};
 
 describe('Answer actions', () => {
   beforeEach(() => { // Runs before each test in the suite
@@ -26,19 +29,34 @@ describe('Answer actions', () => {
   });
 
   test('should dispatch the answer to the store after post', () => {
-    fetchMock
-      .post(`https://stackoverflow-by-theo1.herokuapp.com/v1/questions/${
-        id}/answers`, {
+    fetch
+      .mockResponseOnce(JSON.stringify({
         data: data.sampleAnswer,
-      });
+      }));
 
     const expectedActions = [{
       type: types.NEW_ANSWER,
       data: data.sampleAnswer,
     }];
-    return store.dispatch(postAnswer(data.sampleAnswer, id))
+    return store.dispatch(postAnswer(data.sampleAnswer, payload.answerId))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
+  });
+  test('should dispatch the credentials after accepting answer', () => {
+    fetch
+      .mockResponseOnce(JSON.stringify({
+        payload,
+      }));
+
+    const expectedActions = [{
+      type: types.ACCEPT_ANSWER,
+      data: {
+        payload,
+      }
+    }];
+    return store.dispatch(acceptAnswer(payload)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 });

@@ -1,9 +1,10 @@
-import { NEW_ANSWER } from './types';
+import { NEW_ANSWER, ACCEPT_ANSWER } from './types';
 
-const postAnswer = (data, questionId) => (dispatch) => {
+export const postAnswer = (data, questionId) => (dispatch) => {
   const token = localStorage.getItem('x-access-token');
   return fetch(
-    `https://stackoverflow-by-theo1.herokuapp.com/v1/questions/${questionId}/answers`, {
+    `https://stackoverflow-by-theo1.herokuapp.com/v1/questions/${
+      questionId}/answers`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -21,4 +22,26 @@ const postAnswer = (data, questionId) => (dispatch) => {
     }));
 };
 
-export default postAnswer;
+export const acceptAnswer = payload => (dispatch) => {
+  const token = localStorage.getItem('x-access-token');
+  return fetch(
+    `https://stackoverflow-by-theo1.herokuapp.com/v1/questions/${
+      payload.questionId}/answers/${payload.answerId}`, {
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': token,
+      },
+      body: JSON.stringify({
+        value: payload.value,
+      }),
+    }
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then(result => dispatch({
+      type: ACCEPT_ANSWER,
+      data: result,
+    }));
+};

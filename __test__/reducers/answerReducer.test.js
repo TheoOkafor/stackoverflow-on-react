@@ -5,6 +5,7 @@ import data from '../utilities/data';
 const initialState = {
   answer: {},
   answers: [],
+  accepted: null,
 };
 
 describe('Answer reducer POST ANSWER test', () => {
@@ -71,6 +72,40 @@ describe('Answer reducer FETCH QUESTION/ANSWER test', () => {
         answers: data.question.data.answers,
       },
       answers: data.question.data.answers,
+    });
+  });
+});
+
+describe('Answer reducer ACCEPT ANSWER test', () => {
+  test('should return the initial state', () => {
+    expect(answerReducer(undefined, {})).toEqual(initialState);
+  });
+
+  test('should handle ACCEPT_ANSWER', () => {
+    expect(
+      answerReducer([], {
+        type: types.ACCEPT_ANSWER,
+        data: data.question.data.answers
+      })
+    ).toEqual({
+      accepted: data.question.data.answers,
+    });
+
+    expect(
+      answerReducer([
+        {
+          accepted: data.question.data.answers,
+        }
+      ],
+      {
+        type: types.ACCEPT_ANSWER,
+        data: data.question.data.answers
+      })
+    ).toEqual({
+      0: {
+        accepted: data.question.data.answers,
+      },
+      accepted: data.question.data.answers,
     });
   });
 });
