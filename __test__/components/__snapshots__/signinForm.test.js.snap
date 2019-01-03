@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test that the Signup Form displays 1`] = `
+<div
+  className="sd-margin-12 d-margin-6"
+>
+  <div
+    className="sign-card"
+  >
+    <form
+      className="signup-form"
+      onSubmit={[Function]}
+    >
+      <p>
+        <small>
+          Don't have an account?
+        </small>
+        <a
+          className="inherit"
+          href="/signup"
+        >
+          <b>
+             Sign up
+          </b>
+        </a>
+      </p>
+      <p
+        className="signup-error "
+      >
+        
+      </p>
+      <div
+        className="form-item"
+      >
+        <label
+          htmlFor="email"
+        >
+          Email
+        </label>
+        <input
+          name="email"
+          onInput={[Function]}
+          placeholder="Email"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="form-item"
+      >
+        <label
+          htmlFor="password"
+        >
+          Password
+        </label>
+        <input
+          id="password"
+          name="password"
+          onInput={[Function]}
+          placeholder="Password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <button
+        className="btn primary"
+        id="sign-in"
+      >
+        Sign in
+      </button>
+    </form>
+  </div>
+</div>
+`;
