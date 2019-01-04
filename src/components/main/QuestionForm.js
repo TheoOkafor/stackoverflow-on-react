@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { postQuestion } from '../../actions/questionActions';
 import Button from './Button';
+
 class QuestionForm extends Component {
   constructor(props) {
     super(props);
@@ -11,43 +12,62 @@ class QuestionForm extends Component {
       title: {
         length: 0,
         content: '',
-        message: '',
       },
       description: {
         length: 0,
         content: '',
-        message: '',
       },
-      serverResponse: {
-        message: '',
-      }
+      message: '',
+      styleClass: 'text-success',
     };
+    this.questionForm = React.createRef();
     this.changeHandler = this.changeHandler.bind(this);
     this.postQuestionHandler = this.postQuestionHandler.bind(this);
-
   }
 
   changeHandler(event) {
-    let newLength = event.target.value.trim().length;
+    event.preventDefault();
+    const { id, value, } = event.target;
+    const newLength = value.trim().length;
+    const message = {
+      message: `${newLength} characters (${id})`,
+    };
+    if ((id === 'title' && value.trim().length >= 50)
+    || (id === 'description' && value.trim().length >= 250)) {
+      message.styleClass = 'text-danger';
+    } else {
+      message.styleClass = 'text-success';
+    }
     this.setState({
-      [ event.target.id ]: {
+      [id]: {
         length: newLength,
-        content: event.target.value,
-        message: `${newLength} characters (${event.target.id})`,
+        content: value,
       },
+      ...message,
     });
   }
-  
+
   postQuestionHandler(event) {
     event.preventDefault();
     const { title, description } = this.state;
     const question = {
       title: title.content,
       body: description.content,
-    }
+    };
     this.props.postQuestion(question);
+    this.setState({
+      title: {
+        length: 0,
+        content: '',
+      },
+      description: {
+        length: 0,
+        content: '',
+      },
+      message: '',
+      styleClass: 'text-success',
+    });
   }
-
 
   // componentDidMount() {
 
@@ -96,33 +116,36 @@ class QuestionForm extends Component {
   render() {
     return (
       <div className="card margin-top-15">
-        <h5><span  id="username"> </span> <small>(you)</small></h5>
+        <h5><span id="username" /> <small>(you)</small></h5>
         <div className="message-display">
-          <p id="server-message">{
-            this.state.title.message
-            || this.state.description.message
+          <p id="server-message" className={this.state.styleClass}>{
+            this.state.message
           }</p>
-          <div className="loader-xs" id="post-question-loader"></div>
+          <div className="loader-xs" id="post-question-loader" />
         </div>
-        <form className="question-form" onSubmit={this.postQuestionHandler}>
-          <input 
+
+        <form
+          className="question-form"
+          ref={this.questionForm}
+          onSubmit={this.postQuestionHandler}>
+          <input
             type="text"
             name="question-input"
             value={this.state.title.content}
             placeholder="What is your question?"
-            id="title" 
+            id="title"
             onChange={this.changeHandler} />
           <textarea
-          placeholder="Description"
-          value= {this.state.description.content}
-          id="description" 
-          onChange={this.changeHandler}></textarea>
+            placeholder="Description"
+            value= {this.state.description.content}
+            id="description"
+            onChange={this.changeHandler} />
           <div className="btn-group">
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               className="question-btn"
               styleName="primary"
-              id="send-btn" 
+              id="send-btn"
               name="Ask Question" />
             <input type="reset" value="Cancel" />
           </div>

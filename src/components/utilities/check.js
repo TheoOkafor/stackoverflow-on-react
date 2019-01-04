@@ -5,7 +5,7 @@ const checkPassword = (input) => {
   const doMatch = (arr, word) => {
     const output = [];
 
-    for (let i = 0; i <= arr.length; i += 1) {
+    for (let i = 0; i < arr.length; i += 1) {
       if (word.match(arr[i]) !== null) {
         output.push(word.match(arr[i]));
       }

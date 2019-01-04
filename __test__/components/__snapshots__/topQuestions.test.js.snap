@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AcceptAnswer component Test that the TopQuestions displays 1`] = `
+<table
+  className="table"
+  id="top-questions"
+>
+  <tbody />
+</table>
+`;
+
+exports[`AcceptAnswer component Test that the TopQuestions displays 2`] = `
+<table
+  className="table"
+  id="top-questions"
+>
+  <tbody>
+    <tr>
+      <td>
+        <p
+          className="num-answer
+                "
+        />
+      </td>
+      <td>
+        <p>
+          <a
+            href="http:/questions/6"
+          >
+            why do yo shake?
+          </a>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p
+          className="num-answer
+                "
+        />
+      </td>
+      <td>
+        <p>
+          <a
+            href="http:/questions/5"
+          >
+            why do yo shake?
+          </a>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p
+          className="num-answer
+                "
+        />
+      </td>
+      <td>
+        <p>
+          <a
+            href="http:/questions/4"
+          >
+            why do yo shake?
+          </a>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p
+          className="num-answer
+                "
+        />
+      </td>
+      <td>
+        <p>
+          <a
+            href="http:/questions/3"
+          >
+            why do yo shake?
+          </a>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p
+          className="num-answer
+                selected"
+        >
+          7
+        </p>
+      </td>
+      <td>
+        <p>
+          <a
+            href="http:/questions/2"
+          >
+            why do yo shake?
+          </a>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p
+          className="num-answer
+                "
+        >
+          7
+        </p>
+      </td>
+      <td>
+        <p>
+          <a
+            href="http:/questions/1"
+          >
+            why do yo shake?
+          </a>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

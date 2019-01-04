@@ -1,6 +1,164 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test that the CommentDisp displays 1`] = `
+exports[`Userprofile component Test that the UserProfile displays fetched details 1`] = `
+<div
+  className="row-container home"
+>
+  <div
+    className="sd-margin-12 d-margin-3"
+  >
+    <div
+      className="card margin-top-30"
+      id="profile-summary"
+    >
+      <h4
+        className="margin-bottom-20"
+      >
+        <span
+          className="profile-username"
+        >
+          chanpion
+        </span>
+        's Summary
+      </h4>
+      <ul
+        className="list list-unstyled"
+      >
+        <li>
+          Joined: 
+          <b>
+            Wed, 22 Aug 2018 11:13:09 GMT
+          </b>
+        </li>
+        <li>
+          <b>
+            1
+          </b>
+           Questions
+        </li>
+        <li>
+          <b>
+            1
+          </b>
+           Answers
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="sd-margin-12 d-margin-6 margin-bottom-30"
+    id="main-container"
+  >
+    <div
+      className="row-container margin-top-30 margin-bottom-20"
+    >
+      <h3>
+        Recent Questions by
+        <span
+          className="profile-username"
+        >
+           
+          chanpion
+        </span>
+      </h3>
+      <table
+        className="table"
+        id="top-questions"
+      >
+        <tbody>
+          <tr>
+            <td>
+              <p>
+                <a
+                  className="question"
+                  href="/questions/3"
+                  onClick={[Function]}
+                >
+                  Why do you do yoga?
+                </a>
+              </p>
+            </td>
+            <td>
+              <p
+                className="num-answer "
+              >
+                1
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      className="row-container"
+    >
+      <h3>
+        All
+        <span
+          id="all-questions"
+        >
+           
+          1
+           
+        </span>
+        Questions by
+        <span
+          className="profile-username"
+        >
+           
+          chanpion
+        </span>
+      </h3>
+      <table
+        className="table"
+        id="top-questions"
+      >
+        <tbody>
+          <tr>
+            <td>
+              <p>
+                <a
+                  className="question"
+                  href="/questions/3"
+                  onClick={[Function]}
+                >
+                  Why do you do yoga?
+                </a>
+              </p>
+            </td>
+            <td>
+              <p
+                className="num-answer "
+              >
+                1
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div
+    className="sd-margin-12 d-margin-3"
+  >
+    <div>
+      <h3
+        className="side-title"
+      >
+        Top Questions with Most Answers
+      </h3>
+      <table
+        className="table"
+        id="top-questions"
+      >
+        <tbody />
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Userprofile component Test that the Userprofile displays 1`] = `
 <div
   className="row-container home"
 >
@@ -110,3 +268,5 @@ exports[`Test that the CommentDisp displays 1`] = `
   </div>
 </div>
 `;
+
+exports[`Userprofile component Test that the Userprofile does not display 1`] = `"User not found"`;

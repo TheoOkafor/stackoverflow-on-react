@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import Home from '../../src/components/main/Home';
+import TopQuestions from '../../src/components/aside/TopQuestions';
 import store from '../utilities/store';
 import data from '../utilities/data';
 
@@ -13,35 +13,21 @@ const store1 = store({
 const store2 = store(data.homeQuestions);
 
 describe('AcceptAnswer component', () => {
-  test('Test that the Home displays', () => {
+  test('Test that the TopQuestions displays', () => {
     const component = renderer.create(
       <MemoryRouter>
-        <Home store={store1}/>
+        <TopQuestions store={store1}/>
       </MemoryRouter>
     );
     expect(component).toMatchSnapshot();
   });
 
-  test('Test that the Home displays', () => {
+  test('Test that the TopQuestions displays', () => {
     const component = renderer.create(
       <MemoryRouter>
-        <Home store={store2}/>
+        <TopQuestions store={store2}/>
       </MemoryRouter>
     );
     expect(component).toMatchSnapshot();
-  });
-
-  test('Test that the Home displays', () => {
-    const component = renderer.create(
-      <MemoryRouter>
-        <Home store={store2}/>
-      </MemoryRouter>
-    );
-    component.update(
-      <MemoryRouter>
-        <Home store={store2}/>
-      </MemoryRouter>
-    );
-    expect(component).toBe(component);
   });
 });
