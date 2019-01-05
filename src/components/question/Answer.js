@@ -29,7 +29,10 @@ const Answer = (props) => {
           hasAccepted={props.hasAccepted}
           username = {props.question.username}
           handleAccept={props.handleAccept} />
-        <AnswerOptions answer={props.answer} index={props.index} />
+        <AnswerOptions
+          answer={props.answer}
+          index={props.index}
+          handleVoting={props.handleVoting} />
 
         <Comment answer={props.answer} />
       </div>
@@ -43,6 +46,7 @@ Answer.propTypes = {
   hasAccepted: PropTypes.bool,
   question: PropTypes.object,
   handleAccept: PropTypes.func,
+  handleVoting: PropTypes.func,
 };
 
 export default Answer;

@@ -7,7 +7,7 @@ import QuestionMeta from './QuestionMeta';
 import AsideRight from '../aside/AsideRight';
 import Answer from './Answer';
 import { fetchQuestion } from '../../actions/questionActions';
-import { acceptAnswer } from '../../actions/answerActions';
+import { acceptAnswer, voteAnswer } from '../../actions/answerActions';
 import AnswerForm from './AnswerForm';
 import checkAccepted from '../utilities/hasAccepted';
 
@@ -24,6 +24,7 @@ class QuestionMain extends Component {
     this.showDelOverlay = this.showDelOverlay.bind(this);
     this.cancelDelete = this.cancelDelete.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleVoting = this.handleVoting.bind(this);
   }
 
   componentDidMount() {
@@ -36,7 +37,8 @@ class QuestionMain extends Component {
     const checkNewAnswer = newAnswer === nextProps.newAnswer;
     const check = question === nextProps.question;
     const checkAccept = this.props.accepted === nextProps.accepted;
-    if (!checkNewAnswer || !checkAccept) {
+    const checkVote = this.props.voted === nextProps.voted;
+    if (!checkNewAnswer || !checkAccept || !checkVote) {
       this.props.fetchQuestion(this.props.match.url);
       return true;
     }
@@ -58,6 +60,16 @@ class QuestionMain extends Component {
       value,
     };
     this.props.acceptAnswer(payload);
+  }
+
+  handleVoting(vote, answerId) {
+    const questionId = this.props.question.id;
+    const payload = {
+      questionId,
+      answerId,
+      vote,
+    };
+    this.props.voteAnswer(payload);
   }
 
   showDelOverlay() {
@@ -107,6 +119,7 @@ class QuestionMain extends Component {
                   index={i}
                   hasAccepted={hasAccepted}
                   handleAccept={this.handleAccept}
+                  handleVoting={this.handleVoting}
                   question={this.props.question} />;
               })
             }
@@ -152,18 +165,21 @@ const mapStateToProps = state => ({
   answers: state.answers.answers,
   question: state.questions.questionWithAnswer,
   accepted: state.answers.accepted,
+  voted: state.answers.voted,
 });
 
 QuestionMain.propTypes = {
   fetchQuestion: PropTypes.func.isRequired,
   acceptAnswer: PropTypes.func,
+  voteAnswer: PropTypes.func,
   question: PropTypes.object,
   answers: PropTypes.array,
   newAnswer: PropTypes.object,
   match: PropTypes.object,
   accepted: PropTypes.object,
+  voted: PropTypes.object,
 };
 
 export default connect(mapStateToProps, {
-  fetchQuestion, acceptAnswer
+  fetchQuestion, acceptAnswer, voteAnswer,
 })(QuestionMain);
