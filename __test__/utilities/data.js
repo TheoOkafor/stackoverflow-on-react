@@ -166,6 +166,99 @@ const data = {
       answers: [],
     },
   ],
+
+  homeQuestions: {
+    questions: {
+      question: {
+        id: 1,
+        title: 'why do yo shake?',
+        body: 'Lorem ipsum dolor sit amet, ',
+        userid: 3,
+        username: 'chanpion',
+        answers: [],
+      },
+      questions: [
+        {
+          id: 1,
+          title: 'why do yo shake?',
+          body: 'Lorem ipsum dolor sit amet, ',
+          userid: 3,
+          username: 'chanpion',
+          numAnswers: 7,
+          answers: [
+            {
+              accepted: false,
+              body: 'worddy',
+              comments: [],
+              downvotes: 0,
+              id: 67,
+              questionid: 4,
+              timesubmitted: '2018-11-21T12:23:12.000Z',
+              upvotes: 0,
+              userid: 4,
+              username: 'teddy01',
+              votesCount: 0
+            },
+          ],
+        },
+        {
+          id: 2,
+          title: 'why do yo shake?',
+          body: 'Lorem ipsum dolor sit amet, ',
+          userid: 3,
+          username: 'chanpion',
+          numAnswers: 7,
+          answers: [
+            {
+              accepted: true,
+              body: 'worddy',
+              comments: [],
+              downvotes: 0,
+              id: 67,
+              questionid: 4,
+              timesubmitted: '2018-11-21T12:23:12.000Z',
+              upvotes: 0,
+              userid: 4,
+              username: 'teddy01',
+              votesCount: 0
+            },
+          ],
+        },
+        {
+          id: 3,
+          title: 'why do yo shake?',
+          body: 'Lorem ipsum dolor sit amet, ',
+          userid: 3,
+          username: 'chanpion',
+          answers: [],
+        },
+        {
+          id: 4,
+          title: 'why do yo shake?',
+          body: 'Lorem ipsum dolor sit amet, ',
+          userid: 3,
+          username: 'chanpion',
+          answers: [],
+        },
+        {
+          id: 5,
+          title: 'why do yo shake?',
+          body: 'Lorem ipsum dolor sit amet, ',
+          userid: 3,
+          username: 'chanpion',
+          answers: [],
+        },
+        {
+          id: 6,
+          title: 'why do yo shake?',
+          body: 'Lorem ipsum dolor sit amet, ',
+          userid: 3,
+          username: 'chanpion',
+          answers: [],
+        },
+      ],
+    },
+  },
   newQuestion: {
     id: 1,
     title: 'why do yo shake?',
@@ -185,6 +278,51 @@ const data = {
     password: 'password',
     confirmpassword: 'password',
   },
+  userProfile: {
+    questions: {
+      questions: [],
+    },
+    userProfile: {
+      user: {
+        username: 'chanpion',
+        email: 'gattudasso@is.good',
+        created: '2018-08-22T11:13:09.000Z',
+        modified: '2018-08-22T11:13:09.000Z',
+        questions: [
+          {
+            id: 3,
+            title: 'Why do you do yoga?',
+            body: 'Lorem ipsum dolor sit amet, ',
+            timesubmitted: '2018-08-22T11:13:09.000Z',
+            username: 'chanpion',
+            userid: 3,
+            answers: [
+              {
+                id: 3,
+                questionid: 3,
+                body: 'Lorem ipsum dolor sit amet, ',
+                timesubmitted: '2018-08-22T11:13:09.000Z',
+                username: 'chanpion',
+                userid: 3,
+                accepted: false
+              },
+            ]
+          }
+        ],
+        answers: [
+          {
+            id: 3,
+            questionid: 3,
+            body: 'Lorem ipsum dolor sit amet, ',
+            timesubmitted: '2018-08-22T11:13:09.000Z',
+            username: 'chanpion',
+            userid: 3,
+            accepted: false
+          },
+        ],
+      }
+    }
+  }
 };
 
 export default data;

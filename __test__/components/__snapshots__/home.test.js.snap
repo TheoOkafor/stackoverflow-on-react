@@ -1,3 +1,296 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test that the Home displays 1`] = `<div />`;
+exports[`AcceptAnswer component Test that the Home displays 1`] = `<div />`;
+
+exports[`AcceptAnswer component Test that the Home displays 2`] = `
+<div>
+  <div
+    className="card undefined"
+  >
+    <div>
+      <h3
+        className="qs-title"
+      >
+        <a
+          className="question"
+          href="/questions/1"
+          onClick={[Function]}
+        >
+          why do yo shake?
+        </a>
+      </h3>
+      <div>
+        <h5
+          className="person-answer"
+        >
+          <a
+            className="inherit"
+            href="/users/4"
+            onClick={[Function]}
+          >
+            teddy01
+          </a>
+          <br />
+          <small>
+            Answered: 
+            <span>
+              Wed Nov 21 2018
+            </span>
+          </small>
+        </h5>
+      </div>
+      <p
+        className="answer"
+      >
+        worddy
+      </p>
+      <h6>
+        Answers: 
+        <span>
+          7
+        </span>
+      </h6>
+    </div>
+  </div>
+  <div
+    className="card undefined"
+  >
+    <div>
+      <h3
+        className="qs-title"
+      >
+        <a
+          className="question"
+          href="/questions/2"
+          onClick={[Function]}
+        >
+          why do yo shake?
+        </a>
+      </h3>
+      <div>
+        <h5
+          className="person-answer"
+        >
+          <a
+            className="inherit"
+            href="/users/4"
+            onClick={[Function]}
+          >
+            teddy01
+          </a>
+          <br />
+          <small>
+            Answered: 
+            <span>
+              Wed Nov 21 2018
+            </span>
+          </small>
+        </h5>
+      </div>
+      <p
+        className="answer"
+      >
+        worddy
+      </p>
+      <h6>
+        Answers: 
+        <span>
+          7
+        </span>
+      </h6>
+    </div>
+  </div>
+  <div
+    className="card undefined"
+  >
+    <div>
+      <h3
+        className="qs-title"
+      >
+        <a
+          className="question"
+          href="/questions/3"
+          onClick={[Function]}
+        >
+          why do yo shake?
+        </a>
+      </h3>
+      <div>
+        <h5
+          className="person-answer"
+        >
+          <a
+            className="inherit"
+            href="/users/"
+            onClick={[Function]}
+          >
+            
+          </a>
+          <br />
+          <small>
+            Answered: 
+            <span>
+              
+            </span>
+          </small>
+        </h5>
+      </div>
+      <p
+        className="answer"
+      >
+        No answers yet
+      </p>
+      <h6>
+        Answers: 
+        <span>
+          0
+        </span>
+      </h6>
+    </div>
+  </div>
+  <div
+    className="card undefined"
+  >
+    <div>
+      <h3
+        className="qs-title"
+      >
+        <a
+          className="question"
+          href="/questions/4"
+          onClick={[Function]}
+        >
+          why do yo shake?
+        </a>
+      </h3>
+      <div>
+        <h5
+          className="person-answer"
+        >
+          <a
+            className="inherit"
+            href="/users/"
+            onClick={[Function]}
+          >
+            
+          </a>
+          <br />
+          <small>
+            Answered: 
+            <span>
+              
+            </span>
+          </small>
+        </h5>
+      </div>
+      <p
+        className="answer"
+      >
+        No answers yet
+      </p>
+      <h6>
+        Answers: 
+        <span>
+          0
+        </span>
+      </h6>
+    </div>
+  </div>
+  <div
+    className="card undefined"
+  >
+    <div>
+      <h3
+        className="qs-title"
+      >
+        <a
+          className="question"
+          href="/questions/5"
+          onClick={[Function]}
+        >
+          why do yo shake?
+        </a>
+      </h3>
+      <div>
+        <h5
+          className="person-answer"
+        >
+          <a
+            className="inherit"
+            href="/users/"
+            onClick={[Function]}
+          >
+            
+          </a>
+          <br />
+          <small>
+            Answered: 
+            <span>
+              
+            </span>
+          </small>
+        </h5>
+      </div>
+      <p
+        className="answer"
+      >
+        No answers yet
+      </p>
+      <h6>
+        Answers: 
+        <span>
+          0
+        </span>
+      </h6>
+    </div>
+  </div>
+  <div
+    className="card undefined"
+  >
+    <div>
+      <h3
+        className="qs-title"
+      >
+        <a
+          className="question"
+          href="/questions/6"
+          onClick={[Function]}
+        >
+          why do yo shake?
+        </a>
+      </h3>
+      <div>
+        <h5
+          className="person-answer"
+        >
+          <a
+            className="inherit"
+            href="/users/"
+            onClick={[Function]}
+          >
+            
+          </a>
+          <br />
+          <small>
+            Answered: 
+            <span>
+              
+            </span>
+          </small>
+        </h5>
+      </div>
+      <p
+        className="answer"
+      >
+        No answers yet
+      </p>
+      <h6>
+        Answers: 
+        <span>
+          0
+        </span>
+      </h6>
+    </div>
+  </div>
+</div>
+`;

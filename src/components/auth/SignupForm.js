@@ -3,7 +3,6 @@ import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { signup } from '../../actions/authActions';
-import Button from '../main/Button';
 import check from '../utilities/check';
 
 
@@ -132,6 +131,7 @@ class SignupForm extends Component {
             <div className="form-item">
               <label>Email</label>
               <input
+                data-testid="email"
                 type="email"
                 name="email"
                 placeholder="Your current email address"
@@ -141,6 +141,7 @@ class SignupForm extends Component {
             <div className="form-item">
               <label>Create Password</label>
               <input
+                data-testid="password"
                 type="password"
                 name="password"
                 placeholder="Create Password"
@@ -154,6 +155,7 @@ class SignupForm extends Component {
             <div className="form-item">
               <label>Repeat Password</label>
               <input
+                data-testid="password2"
                 type="password"
                 name="confirmpassword"
                 placeholder="Repeat password"
@@ -162,7 +164,10 @@ class SignupForm extends Component {
                 required />
               <h5 id="match-display">{this.state.passwordMatch.message}</h5>
             </div>
-            <Button styleName="primary" id="sign-up" name="Sign Up" />
+            <button
+              data-testid="signupBtn"
+              className="btn primary"
+              id="sign-up">Sign Up</button>
           </form>
         </div>
       </div>

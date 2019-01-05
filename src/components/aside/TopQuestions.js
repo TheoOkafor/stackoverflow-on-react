@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { fetchQuestions } from '../../actions/questionActions';
@@ -19,10 +18,11 @@ class TopQuestions extends Component {
     this.props.fetchQuestions();
   }
 
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.questions !== this.props.questions) {
+  render() {
+    const topQuestions = [];
+    if (this.props.questions.length > 0) {
+      const { questions } = this.props;
       const questionSummary = [];
-      const { questions } = nextProps;
       const data = questions.slice(0).reverse();
       data.forEach((question) => {
         const accepted = hasAccepted(question.answers);
@@ -37,7 +37,6 @@ class TopQuestions extends Component {
       questionSummary.sort((a, b) => {
         return b.numAnswers - a.numAnswers;
       });
-      const topQuestions = [];
       for (let i = 0; i < 6; i += 1) {
         topQuestions.push(
           <tr key={questionSummary[i].id}>
@@ -50,26 +49,20 @@ class TopQuestions extends Component {
               </p>
             </td>
             <td>
-              <p><Link to={`/questions/${questionSummary[i].id}`}>
-                { questionSummary[i].title }</Link>
+              <p><a href={`${
+                window.location.href.split('/')[0]}/questions/${
+                questionSummary[i].id}`}>
+                { questionSummary[i].title }</a>
               </p>
             </td>
           </tr>
         );
       }
-      this.setState({
-        topQuestions,
-      });
-      return true;
     }
-    return true;
-  }
-
-  render() {
     return (
       <table className="table" id="top-questions">
         <tbody>
-          { this.state.topQuestions }
+          { topQuestions }
         </tbody>
       </table>
     );

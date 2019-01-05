@@ -19,11 +19,11 @@ class AcceptAnswer extends Component {
   }
 
   render() {
-    const token = localStorage.getItem('x-access-token');
     const user = localStorage.getItem('username');
     const hasRight = user === this.props.username;
-    const acceptButton = token && !this.props.hasAccepted
+    const acceptButton = hasRight && !this.props.hasAccepted
       ? <button
+        data-testid="accept"
         className="btn accept right"
         value
         id={this.props.answer.id}
@@ -36,7 +36,9 @@ class AcceptAnswer extends Component {
       : null;
     const unacceptButton = !hasRight || !this.props.answer.accepted
       ? null
-      : <button className="btn unaccept right show"
+      : <button
+        data-testid="unaccept"
+        className="btn unaccept right show"
         id={this.props.answer.id}
         onClick={this.handleAcceptance}>
           Un-accept Answer

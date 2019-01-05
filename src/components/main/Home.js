@@ -26,33 +26,36 @@ class Home extends Component {
       <div>
         {
           this.props.questions.map((question) => {
-            let answer = '';
-            let time = '';
-            let username = '';
-            let answersUserid = '';
+            const featuredAnswer = {
+              answer: 'No answers yet',
+              time: '',
+              username: '',
+              answersUserid: '',
+            };
             const currAnswers = question.answers ? question.answers : [];
             const numAnswers = question.numAnswers || 0;
 
-            // To display accepted answer or any random answer.
             const acceptedAnswer = currAnswers.filter((answer) => {
               return answer.accepted;
             });
             if (acceptedAnswer.length > 0) {
-              answer = acceptedAnswer[0].body;
-              time = new Date(acceptedAnswer[0].timesubmitted).toDateString();
-              username = acceptedAnswer[0].username;
-              answersUserid = acceptedAnswer[0].userid;
+              featuredAnswer.answer = acceptedAnswer[0].body;
+              featuredAnswer.time = new Date(
+                acceptedAnswer[0].timesubmitted
+              ).toDateString();
+
+              featuredAnswer.username = acceptedAnswer[0].username;
+              featuredAnswer.answersUserid = acceptedAnswer[0].userid;
             } else if (numAnswers > 0) {
-              const randomIndex = Math.floor(Math.random() * currAnswers.length);
-              answer = currAnswers[randomIndex].body;
-              time = new Date(currAnswers[randomIndex].timesubmitted)
-                .toDateString();
-              username = currAnswers[randomIndex].username;
-              answersUserid = currAnswers[randomIndex].userid;
-            } else {
-              answer = 'No answers yet';
-              time = '';
-              username = '';
+              const randomIndex = Math.floor(
+                Math.random() * currAnswers.length
+              );
+              featuredAnswer.answer = currAnswers[randomIndex].body;
+              featuredAnswer.time = new Date(
+                currAnswers[randomIndex].timesubmitted
+              ).toDateString();
+              featuredAnswer.username = currAnswers[randomIndex].username;
+              featuredAnswer.answersUserid = currAnswers[randomIndex].userid;
             }
             return (
               <Card key={question.id || question.questionid}>
@@ -65,14 +68,14 @@ class Home extends Component {
 
                   <div>
                     <h5 className="person-answer"><Link className="inherit"
-                      to= {`/users/${answersUserid}`}>
-                      {username}</Link><br />
-                    <small>Answered: <span>{time}</span></small>
+                      to= {`/users/${featuredAnswer.answersUserid}`}>
+                      {featuredAnswer.username}</Link><br />
+                    <small>Answered: <span>{featuredAnswer.time}</span></small>
                     </h5>
                   </div>
 
                   <p className="answer">
-                    {answer}
+                    {featuredAnswer.answer}
                   </p>
                   <h6>Answers: <span>{numAnswers}</span></h6>
                 </div>

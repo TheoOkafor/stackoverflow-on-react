@@ -85,6 +85,7 @@ class SigninForm extends Component {
             <div className="form-item">
               <label htmlFor="email">Email</label>
               <input
+                data-testid="signin-email"
                 type="text"
                 name="email"
                 placeholder="Email"
@@ -95,6 +96,7 @@ class SigninForm extends Component {
             <div className="form-item">
               <label htmlFor="password">Password</label>
               <input
+                data-testid="signin-password"
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -103,7 +105,10 @@ class SigninForm extends Component {
                 required />
             </div>
 
-            <button className="btn primary" id="sign-in">Sign in</button>
+            <button
+              data-testid="signinBtn"
+              className="btn primary"
+              id="sign-in">Sign in</button>
           </form>
         </div>
       </div>

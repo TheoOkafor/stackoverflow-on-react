@@ -74,6 +74,7 @@ exports[`Test that the Signup Main component displays 1`] = `
             Email
           </label>
           <input
+            data-testid="email"
             name="email"
             onChange={[Function]}
             placeholder="Your current email address"
@@ -88,6 +89,7 @@ exports[`Test that the Signup Main component displays 1`] = `
             Create Password
           </label>
           <input
+            data-testid="password"
             id="password"
             name="password"
             onInput={[Function]}
@@ -109,6 +111,7 @@ exports[`Test that the Signup Main component displays 1`] = `
             Repeat Password
           </label>
           <input
+            data-testid="password2"
             id="password2"
             name="confirmpassword"
             onChange={[Function]}
@@ -124,6 +127,7 @@ exports[`Test that the Signup Main component displays 1`] = `
         </div>
         <button
           className="btn primary"
+          data-testid="signupBtn"
           id="sign-up"
         >
           Sign Up

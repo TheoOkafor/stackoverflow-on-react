@@ -15,10 +15,15 @@ class QuestionMain extends Component {
   constructor(props) {
     super(props);
 
+    this.overlayDel = React.createRef();
     this.state = {
       hasAccepted: null,
+      delClass: null,
     };
     this.handleAccept = this.handleAccept.bind(this);
+    this.showDelOverlay = this.showDelOverlay.bind(this);
+    this.cancelDelete = this.cancelDelete.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -55,6 +60,37 @@ class QuestionMain extends Component {
     this.props.acceptAnswer(payload);
   }
 
+  showDelOverlay() {
+    this.setState({
+      delClass: 'block',
+    });
+  }
+
+  cancelDelete() {
+    this.setState({
+      delClass: 'none',
+    });
+  }
+
+  handleDelete() {
+    const token = localStorage.getItem('x-access-token');
+    const url = `https://stackoverflow-by-theo1.herokuapp.com/v1${
+      this.props.match.url}`;
+    fetch(url, {
+      method: 'delete',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'x-access-token': token,
+      }),
+    })
+      .then(response => response.json())
+      .then((result) => {
+        if (result.statusCode === 201) {
+          return window.location.replace(window.location.href.split('/')[0]);
+        }
+      });
+  }
+
   render() {
     const { hasAccepted } = this.state;
     return (
@@ -80,8 +116,32 @@ class QuestionMain extends Component {
         <AsideRight>
           <QuestionMeta
             question={this.props.question}
-            answers={this.props.answers} />
+            answers={this.props.answers}
+            showDelOverlay={this.showDelOverlay} />
         </AsideRight>
+        <div
+          ref={this.overlayDel}
+          id="overlay-delete"
+          style={{ display: this.state.delClass }}>
+          <div className="card" >
+            <p>
+              This question will be DELETED permanently
+              (this CANNOT be reversed)
+            </p>
+            <button
+              className="btn"
+              id="delete-confirm"
+              onClick={this.handleDelete} >
+              OK, Delete Question
+            </button>
+            <button
+              className="btn primary-o"
+              id="delete-cancel"
+              onClick={this.cancelDelete}>
+              Cancel
+            </button>
+          </div>/>
+        </div>
       </div>
     );
   }

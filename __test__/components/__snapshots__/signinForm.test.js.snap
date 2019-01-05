@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test that the Signup Form displays 1`] = `
+exports[`Signin Component Test that the Signup Form displays 1`] = `
 <div
   className="sd-margin-12 d-margin-6"
 >
@@ -38,6 +38,7 @@ exports[`Test that the Signup Form displays 1`] = `
           Email
         </label>
         <input
+          data-testid="signin-email"
           name="email"
           onInput={[Function]}
           placeholder="Email"
@@ -54,6 +55,7 @@ exports[`Test that the Signup Form displays 1`] = `
           Password
         </label>
         <input
+          data-testid="signin-password"
           id="password"
           name="password"
           onInput={[Function]}
@@ -64,6 +66,7 @@ exports[`Test that the Signup Form displays 1`] = `
       </div>
       <button
         className="btn primary"
+        data-testid="signinBtn"
         id="sign-in"
       >
         Sign in
