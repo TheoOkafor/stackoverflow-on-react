@@ -7,6 +7,7 @@ const initialState = {
   answers: [],
   accepted: null,
   voted: null,
+  comment: {},
 };
 
 describe('Answer reducer POST ANSWER test', () => {

@@ -1,4 +1,4 @@
-import { NEW_ANSWER, ACCEPT_ANSWER, VOTE_ANSWER } from './types';
+import { NEW_ANSWER, ACCEPT_ANSWER, VOTE_ANSWER, NEW_COMMENT } from './types';
 
 export const postAnswer = (data, questionId) => (dispatch) => {
   const token = localStorage.getItem('x-access-token');
@@ -67,5 +67,27 @@ export const voteAnswer = payload => (dispatch) => {
     .then(result => dispatch({
       type: VOTE_ANSWER,
       data: result,
+    }));
+};
+
+export const postComment = payload => (dispatch) => {
+  const token = localStorage.getItem('x-access-token');
+  return fetch(
+    `https://stackoverflow-by-theo1.herokuapp.com/v1/questions/${
+      payload.questionid}/answers/${payload.id}/comments`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': token,
+      },
+      body: JSON.stringify(payload.comment),
+    }
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then(result => dispatch({
+      type: NEW_COMMENT,
+      data: result.data,
     }));
 };

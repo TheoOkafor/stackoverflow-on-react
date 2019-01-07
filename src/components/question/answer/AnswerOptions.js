@@ -6,6 +6,7 @@ class AnswerOptions extends Component {
     super(props);
 
     this.handleVoting = this.handleVoting.bind(this);
+    this.handleCommentShow = this.handleCommentShow.bind(this);
   }
 
   handleVoting(event) {
@@ -13,6 +14,10 @@ class AnswerOptions extends Component {
     const { value } = event.target;
     const vote = value;
     this.props.handleVoting(vote, id);
+  }
+
+  handleCommentShow() {
+    this.props.showCommentForm();
   }
 
   render() {
@@ -50,7 +55,8 @@ class AnswerOptions extends Component {
         </button>
         <button
           className="btn link"
-          value={this.props.index}>
+          value={this.props.index}
+          onClick={this.handleCommentShow}>
             Comment
         </button>
       </div>
@@ -63,6 +69,7 @@ AnswerOptions.propTypes = {
   index: PropTypes.number,
   answer: PropTypes.object,
   handleVoting: PropTypes.func,
+  showCommentForm: PropTypes.func,
 };
 
 export default AnswerOptions;

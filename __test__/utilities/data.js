@@ -1,4 +1,29 @@
 const data = {
+  answerComment: {
+    answer: {
+      accepted: null,
+      body: 'What?',
+      comments: [
+        {
+          answerid: 17,
+          body: 'Jonzing',
+          id: 30,
+          questionid: 4,
+          timesubmitted: '2018-11-21T12:35:08.000Z',
+          userid: 4,
+          username: 'teddy01'
+        },
+      ],
+      downvotes: 0,
+      id: 74,
+      questionid: 38,
+      timesubmitted: '2018-11-21T18:20:11.000Z',
+      upvotes: 0,
+      userid: 4,
+      username: 'teddy01',
+      votesCount: 0,
+    },
+  },
   answer: {
     accepted: null,
     body: 'What?',

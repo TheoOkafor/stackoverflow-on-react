@@ -7,7 +7,7 @@ import data from '../utilities/data';
 test('Test that the Question displays', () => {
   const component = renderer.create(
     <MemoryRouter>
-      <Question question={ data.question.data } />
+      <Question question={data.question.data} />
     </MemoryRouter>
   );
   expect(component).toMatchSnapshot();

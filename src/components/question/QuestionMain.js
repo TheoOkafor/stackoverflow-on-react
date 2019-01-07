@@ -38,7 +38,8 @@ class QuestionMain extends Component {
     const check = question === nextProps.question;
     const checkAccept = this.props.accepted === nextProps.accepted;
     const checkVote = this.props.voted === nextProps.voted;
-    if (!checkNewAnswer || !checkAccept || !checkVote) {
+    const checkComment = this.props.comment === nextProps.comment;
+    if (!checkNewAnswer || !checkAccept || !checkVote || !checkComment) {
       this.props.fetchQuestion(this.props.match.url);
       return true;
     }
@@ -166,6 +167,7 @@ const mapStateToProps = state => ({
   question: state.questions.questionWithAnswer,
   accepted: state.answers.accepted,
   voted: state.answers.voted,
+  comment: state.answers.comment,
 });
 
 QuestionMain.propTypes = {
@@ -178,6 +180,7 @@ QuestionMain.propTypes = {
   match: PropTypes.object,
   accepted: PropTypes.object,
   voted: PropTypes.object,
+  comment: PropTypes.object,
 };
 
 export default connect(mapStateToProps, {

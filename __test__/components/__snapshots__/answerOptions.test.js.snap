@@ -45,6 +45,7 @@ exports[`AnswerOptions component Test that the AnswerOptions displays 1`] = `
   </button>
   <button
     className="btn link"
+    onClick={[Function]}
     value={12}
   >
     Comment

@@ -7,3 +7,4 @@ export const SIGN_IN = 'SIGN_IN';
 export const USER = 'USER';
 export const ACCEPT_ANSWER = 'ACCEPT_ANSWER';
 export const VOTE_ANSWER = 'VOTE_ANSWER';
+export const NEW_COMMENT = 'NEW_COMMENT';
