@@ -1,5 +1,5 @@
 import {
-  NEW_ANSWER, FETCH_QUESTION, ACCEPT_ANSWER, VOTE_ANSWER
+  NEW_ANSWER, FETCH_QUESTION, ACCEPT_ANSWER, VOTE_ANSWER, NEW_COMMENT
 } from '../actions/types';
 
 const initialState = {
@@ -7,6 +7,7 @@ const initialState = {
   answers: [],
   accepted: null,
   voted: null,
+  comment: {},
 };
 
 export default (state = initialState, action) => {
@@ -26,6 +27,10 @@ export default (state = initialState, action) => {
   case VOTE_ANSWER:
     return Object.assign({}, state, {
       voted: action.data,
+    });
+  case NEW_COMMENT:
+    return Object.assign({}, state, {
+      comment: action.data,
     });
   default:
     return state;

@@ -1,44 +1,67 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AnswerOptions from './answer/AnswerOptions';
 import AcceptAnswer from './answer/AcceptAnswer';
 import Comment from './answer/Comment';
 
-const Answer = (props) => {
-  return (
-    <div className="answer-card">
-      <div>
-        <h4 className="person-answer left">
-          <Link to={`/users/${props.answer.userid}`}
-            className="inherit">{props.answer.username}</Link>
-          <br />
-          <small>Answered:
-            <span>{new Date(props.answer.timesubmitted).toDateString()}
-            </span></small>
-        </h4>
+class Answer extends Component {
+  constructor(props) {
+    super(props);
 
-        <div className="clear-fix" />
-        <p className="answer" id={`"ans-${props.answer.id}"`}>
-          {props.answer.body}
-        </p>
+    this.overlayDel = React.createRef();
+    this.state = {
+      commentFormVisible: false,
+    };
+    this.showCommentForm = this.showCommentForm.bind(this);
+  }
 
-        <AcceptAnswer
-          answer={props.answer}
-          index={props.index}
-          hasAccepted={props.hasAccepted}
-          username = {props.question.username}
-          handleAccept={props.handleAccept} />
-        <AnswerOptions
-          answer={props.answer}
-          index={props.index}
-          handleVoting={props.handleVoting} />
+  showCommentForm() {
+    const { commentFormVisible } = this.state;
+    this.setState({
+      commentFormVisible: !commentFormVisible,
+    });
+  }
 
-        <Comment answer={props.answer} />
+  render() {
+    const { commentFormVisible } = this.state;
+    return (
+      <div className="answer-card">
+        <div>
+          <h4 className="person-answer left">
+            <Link to={`/users/${this.props.answer.userid}`}
+              className="inherit">{this.props.answer.username}</Link>
+            <br />
+            <small>Answered:
+              <span>{new Date(this.props.answer.timesubmitted).toDateString()}
+              </span></small>
+          </h4>
+
+          <div className="clear-fix" />
+          <p className="answer" id={`"ans-${this.props.answer.id}"`}>
+            {this.props.answer.body}
+          </p>
+
+          <AcceptAnswer
+            answer={this.props.answer}
+            index={this.props.index}
+            hasAccepted={this.props.hasAccepted}
+            username = {this.props.question.username}
+            handleAccept={this.props.handleAccept} />
+          <AnswerOptions
+            answer={this.props.answer}
+            index={this.props.index}
+            handleVoting={this.props.handleVoting}
+            showCommentForm={this.showCommentForm} />
+
+          <Comment
+            answer={this.props.answer}
+            commentFormVisible={commentFormVisible} />
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 Answer.propTypes = {
   answer: PropTypes.object,

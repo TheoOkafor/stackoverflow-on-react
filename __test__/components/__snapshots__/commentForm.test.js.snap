@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test that the CommentForm displays 1`] = `
+exports[`AnswerOptions component Test that the CommentForm displays 1`] = `
 <form
-  className="comment-form"
+  className="comment-form no-show"
 >
   <div
     className="message-display"
@@ -16,12 +16,16 @@ exports[`Test that the CommentForm displays 1`] = `
     />
   </div>
   <textarea
+    data-testid="commentArea"
     id="comment-box-74"
+    onChange={[Function]}
     placeholder="Comment on this answer"
   />
   <button
     className="btn primary"
+    data-testid="commentBtn"
     id="comment-74"
+    onClick={[Function]}
   >
     Post Comment
   </button>
