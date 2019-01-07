@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
-import { postAnswer, acceptAnswer } from '../../src/actions/answerActions';
+import { postAnswer, acceptAnswer, voteAnswer } from '../../src/actions/answerActions';
 import * as types from '../../src/actions/types';
 import data from '../utilities/data';
 
@@ -56,6 +56,23 @@ describe('Answer actions', () => {
       }
     }];
     return store.dispatch(acceptAnswer(payload)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  test('should dispatch the credentials after voting for answer', () => {
+    fetch
+      .mockResponseOnce(JSON.stringify({
+        payload,
+      }));
+
+    const expectedActions = [{
+      type: types.VOTE_ANSWER,
+      data: {
+        payload,
+      }
+    }];
+    return store.dispatch(voteAnswer(payload)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

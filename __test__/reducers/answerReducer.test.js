@@ -6,6 +6,7 @@ const initialState = {
   answer: {},
   answers: [],
   accepted: null,
+  voted: null,
 };
 
 describe('Answer reducer POST ANSWER test', () => {
@@ -106,6 +107,40 @@ describe('Answer reducer ACCEPT ANSWER test', () => {
         accepted: data.question.data.answers,
       },
       accepted: data.question.data.answers,
+    });
+  });
+});
+
+describe('Answer reducer VOTE ANSWER test', () => {
+  test('should return the initial state', () => {
+    expect(answerReducer(undefined, {})).toEqual(initialState);
+  });
+
+  test('should handle VOTE_ANSWER', () => {
+    expect(
+      answerReducer([], {
+        type: types.VOTE_ANSWER,
+        data: data.question.data.answers
+      })
+    ).toEqual({
+      voted: data.question.data.answers,
+    });
+
+    expect(
+      answerReducer([
+        {
+          voted: data.question.data.answers,
+        }
+      ],
+      {
+        type: types.VOTE_ANSWER,
+        data: data.question.data.answers
+      })
+    ).toEqual({
+      0: {
+        voted: data.question.data.answers,
+      },
+      voted: data.question.data.answers,
     });
   });
 });

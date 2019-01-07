@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test that the AnswerOptions displays 1`] = `
+exports[`AnswerOptions component Test that the AnswerOptions displays 1`] = `
 <div
   className="answer-options"
 >
@@ -8,11 +8,11 @@ exports[`Test that the AnswerOptions displays 1`] = `
     className="message-display"
   >
     <p
-      id="\\"vote-mssg-74\\""
+      id="vote-mssg-74"
     />
     <div
       className="loader-xs"
-      id="\\"vote-74-loader\\""
+      id={74}
     />
   </div>
   <span
@@ -22,7 +22,10 @@ exports[`Test that the AnswerOptions displays 1`] = `
   </span>
   <button
     className="btn primary-o"
-    id="\\"vote-74-up\\""
+    data-testid="upvote"
+    id={74}
+    onClick={[Function]}
+    value="upvote"
   >
     Upvote
   </button>
@@ -33,13 +36,16 @@ exports[`Test that the AnswerOptions displays 1`] = `
   </span>
   <button
     className="btn link gray"
-    id="\\"vote-74-down\\""
+    data-testid="downvote"
+    id={74}
+    onClick={[Function]}
+    value="downvote"
   >
     Downvote
   </button>
   <button
     className="btn link"
-    value="\\"12\\""
+    value={12}
   >
     Comment
   </button>

@@ -1,45 +1,68 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../main/Button';
 
-const AnswerOptions = (props) => {
-  return (
-    <div className="answer-options">
-      <div className="message-display">
-        <p id={`"vote-mssg-${props.answer.id}"`} />
-        <div
-          className="loader-xs"
-          id={`"vote-${props.answer.id}-loader"`} />
+class AnswerOptions extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleVoting = this.handleVoting.bind(this);
+  }
+
+  handleVoting(event) {
+    const { id } = event.target;
+    const { value } = event.target;
+    const vote = value;
+    this.props.handleVoting(vote, id);
+  }
+
+  render() {
+    return (
+      <div className="answer-options">
+        <div className="message-display">
+          <p id={`vote-mssg-${this.props.answer.id}`} />
+          <div
+            className="loader-xs"
+            id={this.props.answer.id} />
+        </div>
+        <span className="upvote-display">
+          {this.props.answer.upvotes}
+        </span>
+        <button
+          data-testid="upvote"
+          className="btn primary-o"
+          id={this.props.answer.id}
+          value="upvote"
+          onClick={this.handleVoting} >
+            Upvote
+        </button>
+
+        <span className="vote-display">
+          {this.props.answer.downvotes}
+        </span>
+
+        <button
+          data-testid="downvote"
+          className="btn link gray"
+          id={this.props.answer.id}
+          value="downvote"
+          onClick={this.handleVoting} >
+            Downvote
+        </button>
+        <button
+          className="btn link"
+          value={this.props.index}>
+            Comment
+        </button>
       </div>
-      <span className="upvote-display">
-        {props.answer.upvotes}
-      </span>
-      <Button
-        styleName="primary-o"
-        id={`"vote-${props.answer.id}-up"`}
-        name="Upvote" />
-
-      <span className="vote-display">
-        {props.answer.downvotes}
-      </span>
-
-      <Button
-        styleName="link gray"
-        id={`"vote-${props.answer.id}-down"`}
-        name="Downvote" />
-      <Button
-        styleName="link"
-        value={`"${props.index}"`}
-        name="Comment" />
-    </div>
-  );
-};
+    );
+  }
+}
 
 AnswerOptions.propTypes = {
   id: PropTypes.string,
   index: PropTypes.number,
-  // status: PropTypes.boolean,
   answer: PropTypes.object,
+  handleVoting: PropTypes.func,
 };
 
 export default AnswerOptions;
