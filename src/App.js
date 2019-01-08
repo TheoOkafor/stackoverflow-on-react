@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import store from './store';
 import loggedIn from './components/utilities/checkAuth';
 import './stylesheets/style.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Header from './components/header/Header';
 import Footer from './components/Footer';
@@ -37,6 +39,7 @@ class App extends Component {
         <Router>
           <div>
             <Header />
+            <ToastContainer />
             <Route exact path="/" component={HomePage} />
             <Route exact path="/questions/:id" component={QuestionMain} />
             <Route exact path="/signup"
